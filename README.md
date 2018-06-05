@@ -26,22 +26,28 @@ But i can't understand where we have equation 2. When i remove R33 of equation 2
 
 ### 3. Implement altitude controller in C++. ###
 
+Function `AltitudeControl` in line 170 - 206 of `QuadControl.cpp`.
 1. I computed the Force in world-frame from error Z, erro Z dot, integratedAltitudeError, accelZCmd.
 2. I add GRAVITY on it.
 3. I divide it by R(2,2) of Rotation-Matrix to convert into body-frame. It's thrustcmd what we need.
 
 ### 4. Implement lateral position control in C++. ###
 
+Function `LateralPositionControl` in line 209 - 256 of `QuadControl.cpp`.
 I computed accel-cmd from error (x,y), erro (x,y) dot, accelCmdFF (it's same altitude control).
 
 ### 5. Implement yaw control in C++. ###
 
+Function `YawControl` in line 259 - 292 of `QuadControl.cpp`.
 I computed YawRateCmd only from error of yaw (YawCmd - Yaw).
 
 ### 6. Implement calculating the motor commands given commanded thrust and moments in C++. ###
 
-1. From Pc, Qc, Rc, i computed p_dot_cmd, q_dot_cmd, r_dot_cmd.
-2. Use equation below to calculate c_bar,p_bar,q_bar,r_bar. And then computed omegas.
+Function `GenerateMotorCommands` in line 56 - 94 of `QuadControl.cpp`.
+Function `BodyRateControl` in line 96 - 127 of `QuadControl.cpp`.
+
+1. From Pc, Qc, Rc, i computed p_dot_cmd, q_dot_cmd, r_dot_cmd. (BodyRateControl function)
+2. Use equation below to calculate c_bar,p_bar,q_bar,r_bar. And then computed omegas. (GenerateMotorCommands function)
 
  ![equation](./animations/omega_equation.png)
  
