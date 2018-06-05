@@ -22,7 +22,7 @@ I calculate Rotation matrix from attitude. And then i used two equation below to
 
 ![equation2](./animations/rollpitch_equation2.png)
 
-But i can't understand where we have equation 2.
+But i can't understand where we have equation 2. When i remove R33 of equation 2, i had better result.
 
 ### 3. Implement altitude controller in C++. ###
 
@@ -42,6 +42,7 @@ I computed YawRateCmd only from error of yaw (YawCmd - Yaw).
 
 1. From Pc, Qc, Rc, i computed p_dot_cmd, q_dot_cmd, r_dot_cmd.
 2. Use equation below to calculate c_bar,p_bar,q_bar,r_bar. And then computed omegas.
+
  ![equation](./animations/omega_equation.png)
  
 ## Test scenarios. ##
