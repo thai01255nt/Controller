@@ -66,5 +66,3 @@ I computed YawRateCmd only from error of yaw (YawCmd - Yaw).
 
 ![scenario5](./animations/scenario5.gif)
 ![output](./animations/output_05.png)
- 
- 
